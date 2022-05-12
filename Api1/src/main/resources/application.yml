@@ -1,0 +1,22 @@
+
+server:
+  port: 8080
+
+spring:
+  datasource:
+    username: root
+    password: 
+    url: jdbc:mysql://35.194.5.53/Project2
+  jpa:
+    hibernate:
+      ddl-auto: update
+      naming:
+        physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+    show-sql: true
+    database: mysql
+
+  management:
+    endpoints:
+      web:
+        exposure:
+          include: health, info, prometheus

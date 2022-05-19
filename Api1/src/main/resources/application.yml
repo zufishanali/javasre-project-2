@@ -5,7 +5,7 @@ server:
 spring:
   datasource:
     username: root
-    password: 
+    password: Project2RootPassword
     url: jdbc:mysql://35.194.5.53/Project2
   jpa:
     hibernate:

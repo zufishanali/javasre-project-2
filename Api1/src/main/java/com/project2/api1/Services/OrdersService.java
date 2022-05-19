@@ -81,7 +81,7 @@ public class OrdersService {
         OkHttpClient client = new OkHttpClient().newBuilder()
                 .build();
         Request request = new Request.Builder()
-                .url("https://maps.googleapis.com/maps/api/directions/json?origin="+str+"&destination=1955+S+Stapley+Dr+Mesa+AZ&key=AIzaSyAQGMrW9Jgcafzq9XO2DbarkhzD9FmNqQg")
+                .url("https://maps.googleapis.com/maps/api/directions/json?origin="+str+"&destination=1955+S+Stapley+Dr+Mesa+AZ&key=")
                 .method("GET", null)
                 .build();
         Response response = client.newCall(request).execute();

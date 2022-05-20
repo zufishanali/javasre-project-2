@@ -21,7 +21,6 @@ public class Orders {
     private LocalDateTime orderOn;
     private LocalDateTime fulfilledOn;
     private String status;
-    private boolean isPaid;
 
     @ManyToMany
     List<MenuItem> items;

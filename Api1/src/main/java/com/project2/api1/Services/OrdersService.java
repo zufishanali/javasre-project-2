@@ -1,8 +1,7 @@
 package com.project2.api1.Services;
 
+import com.project2.api1.Models.*;
 import com.project2.api1.Models.MenuItem;
-import com.project2.api1.Models.OrderDTO;
-import com.project2.api1.Models.Orders;
 import com.project2.api1.Repositories.CustomerRepository;
 import com.project2.api1.Repositories.MenuItemRepository;
 import com.project2.api1.Repositories.OrdersRepository;
@@ -13,7 +12,11 @@ import okhttp3.ResponseBody;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpEntity;
+import org.springframework.http.HttpMethod;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
+import org.springframework.web.client.RestTemplate;
 
 import java.awt.*;
 import java.io.IOException;
@@ -81,7 +84,7 @@ public class OrdersService {
         OkHttpClient client = new OkHttpClient().newBuilder()
                 .build();
         Request request = new Request.Builder()
-                .url("https://maps.googleapis.com/maps/api/directions/json?origin="+str+"&destination=1955+S+Stapley+Dr+Mesa+AZ&key=")
+                .url("https://maps.googleapis.com/maps/api/directions/json?origin="+str+"&destination=1955+S+Stapley+Dr+Mesa+AZ&key=<PAST API KEY HERE>")
                 .method("GET", null)
                 .build();
         Response response = client.newCall(request).execute();
@@ -104,12 +107,17 @@ public class OrdersService {
         {
             lst.add(menuItemRepository.findById(i).get());
         }
-        Orders order = new Orders(99,o.getCustomerId(), LocalDateTime.now(),null,"New",false,lst);
+        Orders order = new Orders(99,o.getCustomerId(), LocalDateTime.now(),null,"New",lst);
         return ordersRepository.save(order).getOrderId();
     }
 
-    public boolean placeOrder(int id)
+    public String placeOrder(int oId)
     {
-    return true;
+        Customer c = customerRepository.findById(ordersRepository.findById(oId).get().getCustomerId()).get();
+        RestTemplate tmp = new RestTemplate();
+        HttpEntity<TransferOrderDTO> req = new HttpEntity<>(new TransferOrderDTO(oId,c.getContactType(),c.getId(),c.getEmailAddress(),c.getPhoneNumber()));
+        String resourceUrl = "http://localhost:8000/resteraunt/getOrder";
+        ResponseEntity<String> response = tmp.exchange(resourceUrl, HttpMethod.PUT,req,String.class);
+        return response.getBody();
     }
 }

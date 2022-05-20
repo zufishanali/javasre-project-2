@@ -54,9 +54,4 @@ public class OrderController {
 
     }
 
-    @GetMapping("/myorders/{id}")
-    public ResponseEntity getAllOrders(@PathVariable int id)
-    {
-        return ResponseEntity.ok(ordersService.getAllItems(id));
-    }
 }

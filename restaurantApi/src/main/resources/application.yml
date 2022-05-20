@@ -4,7 +4,7 @@ server:
 spring:
   datasource:
     username: root
-    password: Project2RootPassword
+    password: ${DB_PASSWORD}
     url: jdbc:mysql://35.194.5.53/Project2
   jpa:
     hibernate:
@@ -19,3 +19,15 @@ spring:
       web:
         exposure:
           include: health, info, prometheus
+
+  mail:
+    host: smtp.gmail.com
+    port: 587
+    username: ${EMAIL_USERNAME}
+    password: ${EMAIL_PASSWORD}
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls:
+            enable: true

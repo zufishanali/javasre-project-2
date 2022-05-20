@@ -3,9 +3,7 @@ package com.project2.restaurantApi.models;
 
 import lombok.*;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Data
 @NoArgsConstructor
@@ -15,10 +13,10 @@ import javax.persistence.Table;
 @Table(name="MenuItem")
 public class MenuItem {
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     public int id;
     @NonNull
     public String description;
     @NonNull
     public double cost;
-    public String specialInstructions;
 }

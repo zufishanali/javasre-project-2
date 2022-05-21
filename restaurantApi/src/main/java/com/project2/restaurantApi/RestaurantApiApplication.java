@@ -1,6 +1,7 @@
 package com.project2.restaurantApi;
 
 import com.project2.restaurantApi.repositories.OrdersRepository;
+import com.project2.restaurantApi.services.MessageRequestService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
@@ -11,7 +12,7 @@ import org.springframework.context.annotation.Bean;
 public class RestaurantApiApplication {
 
 	@Autowired
-	OrdersRepository ordersRepository;
+	MessageRequestService messageRequestService;
 
 	public static void main(String[] args) {
 		SpringApplication.run(RestaurantApiApplication.class, args);
@@ -21,6 +22,8 @@ public class RestaurantApiApplication {
 	CommandLineRunner runner(){
 		return args -> {
 			System.out.println("Hello World!");
+			//messageRequestService.sendSMS();
+
 		};
 	}
 }

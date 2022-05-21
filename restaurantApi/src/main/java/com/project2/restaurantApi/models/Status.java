@@ -4,5 +4,6 @@ public enum Status {
     PLACED,
     CONFIRMED,
     READY,
-    COMPLETED
+    COMPLETED,
+    CANCELLED
 }

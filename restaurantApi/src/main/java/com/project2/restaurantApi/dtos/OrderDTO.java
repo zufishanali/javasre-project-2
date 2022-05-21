@@ -1,5 +1,6 @@
 package com.project2.restaurantApi.dtos;
 
+import com.project2.restaurantApi.models.Status;
 import lombok.*;
 
 @Getter
@@ -7,9 +8,8 @@ import lombok.*;
 @NoArgsConstructor
 public class OrderDTO {
     private int orderId;
-    private String contactPreference; // email or phone or both
-    private int customerId;
+    private Status orderStatus;
+    private String contactPreference;
     private String customerEmail;
     private String customerNumber;
-    private boolean isPayed;
 }

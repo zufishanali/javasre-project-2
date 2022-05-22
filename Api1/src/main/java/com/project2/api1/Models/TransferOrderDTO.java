@@ -10,7 +10,6 @@ import lombok.NoArgsConstructor;
 public class TransferOrderDTO {
     private int orderId;
     private String contactPreference; // email or sms or both
-    private int customerId;
     private String customerEmail;
     private String customerNumber;
 }

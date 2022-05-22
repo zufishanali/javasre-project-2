@@ -115,8 +115,8 @@ public class OrdersService {
     {
         Customer c = customerRepository.findById(ordersRepository.findById(oId).get().getCustomerId()).get();
         RestTemplate tmp = new RestTemplate();
-        HttpEntity<TransferOrderDTO> req = new HttpEntity<>(new TransferOrderDTO(oId,c.getContactType(),c.getId(),c.getEmailAddress(),c.getPhoneNumber()));
-        String resourceUrl = "http://localhost:8000/resteraunt/getOrder";
+        HttpEntity<TransferOrderDTO> req = new HttpEntity<>(new TransferOrderDTO(oId,c.getContactType(),c.getEmailAddress(),c.getPhoneNumber()));
+        String resourceUrl = "http://localhost:8000/restaurant/getOrder";
         ResponseEntity<String> response = tmp.exchange(resourceUrl, HttpMethod.PUT,req,String.class);
         return response.getBody();
     }

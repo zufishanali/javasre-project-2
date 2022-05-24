@@ -38,7 +38,7 @@ public class OrderService {
      * @return List of all orders that are not yet completed
      */
     public List<Orders> getAllActiveOrders(){
-        return ordersRepository.findByStatusNotLikeIgnoreCase("completed");
+        return ordersRepository.findByStatusNotLikeIgnoreCase("COMPLETED");
     }
 
 

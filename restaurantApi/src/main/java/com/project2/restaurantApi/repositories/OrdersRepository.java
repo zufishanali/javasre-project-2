@@ -13,7 +13,8 @@ import java.util.List;
 @Repository
 public interface OrdersRepository extends JpaRepository<Orders, Integer> {
 
-    List<Orders> findByStatusNotLikeIgnoreCase(String status);
+
+    List<Orders> findByStatusNotLikeIgnoreCase(@Param("status")String status);
 
     List<Orders> findAllByFulfilledOnBetween(LocalDateTime timeStart, LocalDateTime timeEnd);
 

@@ -18,11 +18,11 @@ pipeline {
       // }
       steps{
         echo "unit tests: $WORKSPACE"
-        dir('restaurantApi/'){      
-          withMaven {
-            sh 'mvn test'
-          }
+        //dir('restaurantApi/'){      
+        withMaven {
+          sh 'mvn test'
         }
+        //}
       }
     }
 

@@ -18,7 +18,7 @@ pipeline {
       // }
       steps{
         echo "unit tests: $WORKSPACE"
-        dir('restaurantApi'){
+        dir('restaurantApi/'){
           echo "CURRENT WORKSPACE - $WORKSPACE"
       //     withMaven {
       //       sh 'mvn test'

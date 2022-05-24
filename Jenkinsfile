@@ -13,26 +13,19 @@ pipeline {
     }
 
     stage('Unit Tests'){
-      when{
-        not { branch 'main' }
-      }
-      steps{
-        // echo "pwd"
-        // dir('Api1'){
-        //   sh "pwd"
-        //   withMaven {
-        //     sh 'mvn test'
-        //   }
-        //   sh "pwd"
-        // }
-
-        dir('restaurantApi'){
-          echo "$WORKSPACE"
-          withMaven {
-            sh 'mvn test'
-          }
-        }
-      }
+      echo "unit tests: $WORKSPACE"
+      // when{
+      //   not { branch 'main' }
+      // }
+      // steps{
+      //   echo "CURRENT WORKSPACE 1 $WORKSPACE"
+      //   dir('restaurantApi'){
+      //     echo "CURRENT WORKSPACE 2 $WORKSPACE"
+      //     withMaven {
+      //       sh 'mvn test'
+      //     }
+      //   }
+      // }
     }
 
 

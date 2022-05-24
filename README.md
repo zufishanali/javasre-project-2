@@ -46,18 +46,14 @@ ROOF application serves customers to create orders for pickup from the restauran
 
 ## Features
 
-### Customer can:
-* Log in 
-* Check if the restaurant is in range
-* Place an order and recieve emails/texts on order status changes 
+List of features:
+* Customer focused API that accepts customer orders and utilizes the Google Maps directions API to limit orders to within 25 miles of location
+* Restaurant focused API that allows the order status to be updated and notifies the customer of each change either via email or text utilising the Twillio messaging API
+* Hosted in a kubernetes pod
 
-### Restaurant can: 
-* View all active orders
-* View recently completed orders
-* Update order status [Ready, Completed, Cancelled]
-
-### To-do List:
-* Online payment functionality
+To-do list:
+* Implement an online payment process utilizing a third party API.
+* Allow for better menu item selection and ordering
 
 ## Contributors
 * Zufishan Ali

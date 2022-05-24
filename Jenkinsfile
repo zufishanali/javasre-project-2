@@ -17,16 +17,17 @@ pipeline {
         not { branch 'main' }
       }
       steps{
-        sh "pwd"
-        dir('Api1'){
-          sh "pwd"
-          withMaven {
-            sh 'mvn test'
-          }
-          sh "pwd"
-        }
+        // echo "pwd"
+        // dir('Api1'){
+        //   sh "pwd"
+        //   withMaven {
+        //     sh 'mvn test'
+        //   }
+        //   sh "pwd"
+        // }
 
-      dir('restaurantApi'){
+        dir('restaurantApi'){
+          echo "$WORKSPACE"
           withMaven {
             sh 'mvn test'
           }

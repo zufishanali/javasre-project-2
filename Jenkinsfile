@@ -17,9 +17,9 @@ pipeline {
       //   not { branch 'main' }
       // }
       steps{
-        echo "unit tests: $WORKSPACE"
+        echo "unit tests: $pwd"
         dir('restaurantApi/'){
-          echo "CURRENT WORKSPACE - $WORKSPACE"
+            echo "$pwd"
       //     withMaven {
       //       sh 'mvn test'
       //     }

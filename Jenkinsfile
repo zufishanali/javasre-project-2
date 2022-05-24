@@ -17,12 +17,11 @@ pipeline {
       //   not { branch 'main' }
       // }
       steps{
-        echo "unit tests: $pwd"
-        dir('restaurantApi/'){
-            echo "$pwd"
-      //     withMaven {
-      //       sh 'mvn test'
-      //     }
+        echo "unit tests: $WORKSPACE"
+        dir('restaurantApi/'){      
+          withMaven {
+            sh 'mvn test'
+          }
         }
       }
     }

@@ -18,9 +18,9 @@ pipeline {
       }
       steps{
         echo "unit testing"
-        /* withMaven {
+        withMaven {
           sh 'mvn test'
-        } */
+        }
       }
     }
 
@@ -30,9 +30,9 @@ pipeline {
       }
       steps{
         echo "building main"
-        /* withMaven{
+        withMaven{
           sh 'mvn package -DskipTests'
-        } */
+        }
       }
     }
 

@@ -13,11 +13,11 @@ pipeline {
     }
 
     stage('Unit Tests'){
-      echo "unit tests: $WORKSPACE"
       // when{
       //   not { branch 'main' }
       // }
-      // steps{
+      steps{
+        echo "unit tests: $WORKSPACE"
       //   echo "CURRENT WORKSPACE 1 $WORKSPACE"
       //   dir('restaurantApi'){
       //     echo "CURRENT WORKSPACE 2 $WORKSPACE"
@@ -25,7 +25,7 @@ pipeline {
       //       sh 'mvn test'
       //     }
       //   }
-      // }
+      }
     }
 
 

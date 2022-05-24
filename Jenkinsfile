@@ -12,39 +12,33 @@ pipeline {
       }
     }
 
-    stage('Unit Tests API 1'){
+    stage('Unit Tests'){
       when{
         not { branch 'main' }
       }
       steps{
-        echo "unit testing API 1"
-        withMaven {
-          sh 'mvn -f Api1/pom.xml test'
+        dir('Api1'){
+          withMaven {
+            sh 'mvn test'
+          }
+        }
+
+        dir('restaurantApi'){
+          withMaven {
+            sh 'mvn test'
+          }
         }
       }
     }
 
-    stage('Unit Tests API 2'){
-      when{
-        not { branch 'main' }
-      }
-      steps{
-        echo "unit testing API 2"
-        withMaven {
-          sh 'mvn -f restaurantApi/pom.xml test'
-        }
-      }
-    }
-    
 
     stage('Build'){
       when{
         branch 'main'
       }
       steps{
-        echo "building main API 1"
         withMaven{
-          sh 'mvn -f Api1/pom.xml package -DskipTests'
+          sh 'mvn -f restaurantApi/pom.xml package -DskipTests'
         }
       }
     }

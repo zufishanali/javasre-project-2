@@ -51,12 +51,12 @@ public class OrderServiceTest {
 
     @Test
     public void shouldGetAllActiveOrders(){
-        when(ordersRepository.findByStatusNotLikeIgnoreCase("completed")).thenReturn(expectedList);
+        when(ordersRepository.findByStatusNotLikeIgnoreCase("COMPLETED")).thenReturn(expectedList);
         List<Orders> actualList = orderService.getAllActiveOrders();
         Assertions.assertEquals(expectedList, actualList);
 
         expectedOrder.setStatus("COMPLETED");
-        when(ordersRepository.findByStatusNotLikeIgnoreCase("completed")).thenReturn(Collections.emptyList());
+        when(ordersRepository.findByStatusNotLikeIgnoreCase("COMPLETED")).thenReturn(Collections.emptyList());
         List<Orders> actualList2 = orderService.getAllActiveOrders();
         Assertions.assertTrue(actualList2.isEmpty());
 

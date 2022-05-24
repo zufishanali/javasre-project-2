@@ -20,6 +20,7 @@ ROOF application serves customers to create orders for pickup from the restauran
 * JUnit 
 * Spring Test 
 * Mockito 
+* Insomnia
 
 ### Deployment & Automation: 
 
@@ -45,20 +46,23 @@ ROOF application serves customers to create orders for pickup from the restauran
 
 ## Features
 
-List of features ready and TODOs for future development
-* Awesome feature 1
-* Awesome feature 2
-* Awesome feature 3
+### Customer can:
+* Log in 
+* Check if the restaurant is in range
+* Place an order and recieve emails/texts on order status changes 
 
-To-do list:
-* Wow improvement to be done 1
-* Wow improvement to be done 2
+### Restaurant can: 
+* View all active orders
+* View recently completed orders
+* Update order status [Ready, Completed, Cancelled]
 
-## Getting Started
-
+### To-do List:
+* Online payment functionality
 
 ## Contributors
-
+* Zufishan Ali
+* Ryan Baird
+* Amandeep Aulakh
 
 ## License
 

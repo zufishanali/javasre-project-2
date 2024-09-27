@@ -12,29 +12,32 @@ pipeline {
       }
     }
 
-    stage('Unit Test'){
-      when{
-        not { branch 'main' }
-      }
+    stage('Unit Tests'){
+      // when{
+      //   not { branch 'main' }
+      // }
       steps{
-        echo "unit testing"
+        echo "unit tests: $WORKSPACE"
+        //dir('restaurantApi/'){      
         withMaven {
           sh 'mvn test'
         }
+        //}
       }
     }
+
 
     stage('Build'){
       when{
         branch 'main'
       }
       steps{
-        echo "building main"
         withMaven{
-          sh 'mvn package -DskipTests'
+          sh 'mvn -f restaurantApi/pom.xml package -DskipTests'
         }
       }
     }
+
 
     stage('Docker Image'){
       when{
